@@ -2,7 +2,7 @@
  * AngularJS Material Design
  * https://github.com/angular/material
  * @license MIT
- * v1.2.3
+ * v1.2.4
  */
 (function( window, angular, undefined ){
 "use strict";
@@ -33086,8 +33086,8 @@ function SelectProvider($$interimElementProvider) {
             return;
           }
 
-          if (opts.focusedNode && opts.focusedNode.hasAttribute &&
-              !opts.focusedNode.hasAttribute('disabled')) {
+          var option = $mdUtil.getClosest(event.target, 'md-option');
+          if (option && option.hasAttribute && !option.hasAttribute('disabled')) {
             event.preventDefault();
             event.stopPropagation();
             if (!selectMenuController.isMultiple) {
@@ -39652,4 +39652,4 @@ angular.module("material.core").constant("$MD_THEME_CSS", "md-autocomplete.md-TH
 })();
 
 
-})(window, window.angular);;window.ngMaterial={version:{full: "1.2.3"}};
+})(window, window.angular);;window.ngMaterial={version:{full: "1.2.4"}};

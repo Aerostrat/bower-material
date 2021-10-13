@@ -2,7 +2,7 @@
  * AngularJS Material Design
  * https://github.com/angular/material
  * @license MIT
- * v1.2.3
+ * v1.2.4
  */
 goog.provide('ngmaterial.components.select');
 goog.require('ngmaterial.components.backdrop');
@@ -1924,8 +1924,8 @@ function SelectProvider($$interimElementProvider) {
             return;
           }
 
-          if (opts.focusedNode && opts.focusedNode.hasAttribute &&
-              !opts.focusedNode.hasAttribute('disabled')) {
+          var option = $mdUtil.getClosest(event.target, 'md-option');
+          if (option && option.hasAttribute && !option.hasAttribute('disabled')) {
             event.preventDefault();
             event.stopPropagation();
             if (!selectMenuController.isMultiple) {
